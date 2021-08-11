@@ -18,41 +18,8 @@ MODULE_VERSION("0.01");
 
 static int my_proc_show(struct seq_file *m, void *v)
 {
-    /*
-    ¿Qué hace 'ktime_get_real_seconds'?
-
-    Return a coarse-grained version of the time as a scalar time64_t. 
-    This avoids accessing the clock hardware and rounds down the seconds
-    to the full seconds of the last timer tick using the respective 
-    reference.
-
-    Referencia:
-
-    https://www.kernel.org/doc/html/latest/core-api/timekeeping.html#c.ktime_get_real_seconds
-    */
     unsigned long current_time = ktime_get_real_seconds(); // Segundos transcurridos desde 1970
 
-    /*
-
-    If variable is of Type,		use printk format specifier:
-	------------------------------------------------------------
-		int			            %d or %x
-		unsigned int		    %u or %x
-		long			        %ld or %lx
-		unsigned long		    %lu or %lx
-		long long		        %lld or %llx
-		unsigned long long	    %llu or %llx
-		size_t			        %zu or %zx
-		ssize_t			        %zd or %zx
-		s32			            %d or %x
-        u32			            %u or %x
-		s64			            %lld or %llx
-		u64			            %llu or %llx
-    
-    Información adicional de PrintK Y seq_printf
-    https://www.kernel.org/doc/Documentation/printk-formats.txt
-
-    */
     int seconds, minutes, hours;
 
     seconds = (current_time % 60);      // Obtener segundos en la hora actual
