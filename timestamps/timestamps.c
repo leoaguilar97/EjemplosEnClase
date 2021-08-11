@@ -12,7 +12,7 @@
 #include <linux/timekeeping.h>
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Leonel Aguilar - Sebastian Sanchez");
+MODULE_AUTHOR("Leonel Aguilar");
 MODULE_DESCRIPTION("Modulo que muestra la hora del sistema");
 MODULE_VERSION("0.01");
 
