@@ -17,7 +17,7 @@ const isTesting = process.env.TESTING === "true";
 
 // Aca es donde se lee el modulo kernel que cargamos!
 const getTimestamp = () =>
-    (fs.readFileSync('/elements/procs/timestamps', 'utf8')).toString(); // Este metodo va a leer la carpeta /proc/timestamps y convierte sus datos a un string.
+    (fs.readFileSync('/proc/timestamps', 'utf8')).toString(); // Este metodo va a leer la carpeta /proc/timestamps y convierte sus datos a un string.
 
 // Este metodo sirve para devolver la informacion que hay en el modulo
 // En caso la lectura no pueda ser efectuada, devolvemos un error!
