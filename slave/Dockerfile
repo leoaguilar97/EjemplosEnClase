@@ -22,4 +22,4 @@ EXPOSE 80
 RUN mkdir -p /elements/procs
 
 # Correr NodeJS
-CMD [ "node", "server.js" ]
+CMD [ "node", "index.js" ]
