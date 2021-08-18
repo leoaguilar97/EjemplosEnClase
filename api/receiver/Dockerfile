@@ -1,6 +1,6 @@
 # Obtener la imagen que necesitamos
 # en este caso, node v.14.x.x
-FROM node
+FROM node:14
 
 # Asignar el workdir de la api
 WORKDIR /usr/src/app
@@ -15,11 +15,8 @@ RUN npm install
 # Copiar todos los archivos al workdir
 COPY . .
 
-# Exponer el puerto 80 al mundo
-EXPOSE 80
-
-# Copiar el volumen de datos de proc a /elements/procs
-RUN mkdir -p /elements/procs
+# Exponer el puerto 4001 al mundo
+EXPOSE 4001
 
 # Correr NodeJS
-CMD [ "node", "index.js" ]
+CMD [ "node", "server.js" ]

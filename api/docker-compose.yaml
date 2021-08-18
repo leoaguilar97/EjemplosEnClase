@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  receiver:
+    build: ./receiver
+    ports:
+      - "4001:4001"
+    networks:
+      - tuiter
+
+  sender:
+    build: "./sender"
+    ports:
+      - "80:4000"
+    environment:
+      - OTHER_API_URL=http://receiver:4001
+    networks:
+      - tuiter
+    volumes:
+      - /proc/:/elements/procs/
+
+networks:
+  tuiter:
+    driver: "bridge"
