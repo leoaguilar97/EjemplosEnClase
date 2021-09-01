@@ -8,7 +8,7 @@ services:
       - tuiter
 
   sender:
-    image: api:sender
+    build: ./sender
     ports:
       - "80:4000"
     environment:

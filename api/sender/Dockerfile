@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Exponer el puerto 80 al mundo
-EXPOSE 80
+EXPOSE 4000
 
 # Copiar el volumen de datos de proc a /elements/procs
 RUN mkdir -p /elements/procs

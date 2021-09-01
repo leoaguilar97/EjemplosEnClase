@@ -2,6 +2,8 @@
 // Aca se pueden definir todas las variables de entorno
 require('dotenv').config(); //npm i dotenv
 
+const { PubSub } = require('@google-cloud/pubsub');
+
 // Modulos instalados 
 const express = require('express'); // npm i express
 const axios = require('axios'); // npm i axios
@@ -9,8 +11,6 @@ const axios = require('axios'); // npm i axios
 // Modulos que escribimos nosotros
 const { getHtmlList } = require('./templates'); // Modulo cargado en templates.js, getHtmlList se utiliza para generar una lista en HTML
 const { getTimestamp } = require('./kernel'); // Modulo que controla los kernels, getTimestamp se utiliza para obtener la informacion que provee el modulo
-
-// EMPEZAMOS LA API
 
 const OTHER_API_URL = process.env.OTHER_API_URL; // Leer la URL de la api del archivo .env
 
