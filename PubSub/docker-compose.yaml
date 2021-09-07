@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  pub:
+    image: pub
+    ports:
+      - "5001:5001"
+    networks:
+      - tuiter
+
+  sub:
+    image: sub
+    depends_on:
+      - pub
+    restart: always
+    networks:
+      - tuiter
+
+  receiver:
+    image: node:receiver
+    ports:
+      - "4001:4001"
+    networks:
+      - tuiter
+
+  sender:
+    image: node:sender
+    ports:
+      - "4000:4000"
+    environment:
+      - OTHER_API_URL=http://receiver:4001
+    networks:
+      - tuiter
+    volumes:
+      - /proc/:/elements/procs/
+
+networks:
+  tuiter:
+    driver: "bridge"
